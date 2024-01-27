@@ -26,6 +26,7 @@ public class charactorController : MonoBehaviour
     void Start()
     {
         activeFlag = true;
+        setupRigidbody();
         cameraRot = mainCamera.transform.localRotation;
         characotrRot = player.transform.localRotation;
     }
@@ -141,5 +142,10 @@ public class charactorController : MonoBehaviour
         q.x = Mathf.Tan(angleX * Mathf.Deg2Rad * 0.5f);
 
         return q;
+    }
+    private void setupRigidbody()
+    {
+        rigidbodyPlayer.constraints = RigidbodyConstraints.FreezePositionY;
+        rigidbodyPlayer.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }

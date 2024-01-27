@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyAnimator : MonoBehaviour
 {
     public moveSpeedMonitor MSM;
-    public Animator anim;
+    private Animator anim;
     public bool walk;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         walk = false;
     }
 

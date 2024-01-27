@@ -8,7 +8,9 @@ public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject target;
+    public GameObject[] normaltarget;
+    public int targetID;
+    public GameObject Playertarget;
     private NavMeshAgent agent;
     public GameObject SerchArea;
     private inArea inarea;
@@ -17,14 +19,32 @@ public class EnemyController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         inarea = SerchArea.GetComponent<inArea>();
+        targetID = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inarea.playerIn == false)
-            return;
-            agent.destination = target.transform.position;
+        if(inarea.playerIn==true)
+            agent.destination = Playertarget.transform.position;
+        
+        else
+        {
+            if (normaltarget.Length == 0)
+                return;
+            agent.destination = normaltarget[targetID].transform.position;
+        }
+            
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name==normaltarget[targetID].name)
+        {
+            targetID += 1;
+            if (targetID == normaltarget.Length)
+            {
+                targetID = 0;
+            }
+        }
+    }
 }

@@ -5,10 +5,13 @@ using UnityEngine;
 public class inArea : MonoBehaviour
 {
     public bool playerIn;
+    public GameObject gameManager;
+    private PanicPointManager PPM;
     // Start is called before the first frame update
     void Start()
     {
         playerIn = false;
+        PPM = gameManager.GetComponent<PanicPointManager>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,7 @@ public class inArea : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerIn = true;
+            PPM.panic = true;
         }
 
     }
@@ -29,6 +33,7 @@ public class inArea : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerIn = false;
+            PPM.panic = false;
         }
     }
 }

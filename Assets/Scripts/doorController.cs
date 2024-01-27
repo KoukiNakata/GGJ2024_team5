@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class doorController : MonoBehaviour
+public class doorController : gimicBase, Igimic
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Animator animator;
+    [SerializeField] GameObject door;
+    private string flagName = "openFlag";
+
+    private void Start()
     {
-        
+        changeTag();
     }
 
-    // Update is called once per frame
-    void Update()
+    override public void getedGimic()
     {
-        
+        animator.SetBool(flagName, true);
+        //SE
+        Destroy(door.GetComponent<doorController>());
     }
 }

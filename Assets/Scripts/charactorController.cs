@@ -17,7 +17,7 @@ public class charactorController : MonoBehaviour
     private float x, z;
     private Quaternion cameraRot, characotrRot;
     public bool activeFlag;
-    private string tagName = "keyItem";
+    private string tagName = "gimmickItem";
     private string axisRawNameX = "Horizontal";
     private string axisRawNameY = "Vertical";
     private string axisMouseX = "Mouse X";

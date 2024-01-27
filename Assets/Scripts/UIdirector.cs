@@ -10,7 +10,11 @@ using UnityEngine.UIElements;
 /// </summary>
 public class UIdirector : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI gameOver;
+    [SerializeField] GameObject obj_gameOver;
+
+
+
+    [SerializeField] TextMeshProUGUI tmp_gameOver;
     [SerializeField] Image panicImage;
 
     // Start is called before the first frame update
@@ -19,11 +23,25 @@ public class UIdirector : MonoBehaviour
 
     }
 
+    private void initialize()
+    {
+        obj_gameOver.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
 
     }
 
+    public void activeGameOver()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void activeRetryButton()
+    {
+
+    }
 
 }

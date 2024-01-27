@@ -16,15 +16,18 @@ public class charactorController : MonoBehaviour
 
     private float x, z;
     private Quaternion cameraRot, characotrRot;
+    public bool activeFlag;
 
     void Start()
     {
+        activeFlag = true;
         cameraRot = mainCamera.transform.localRotation;
         characotrRot = player.transform.localRotation;
     }
 
     void Update()
     {
+        if (!activeFlag) return;
         charactorMove();
         viewControler();
         cursorLocker();

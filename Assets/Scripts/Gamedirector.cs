@@ -4,7 +4,10 @@ using UnityEngine;
 
 enum keyName
 {
-
+    step_1,
+    step_2,
+    step_3,
+    step_4
 }
 
 /// <summary>
@@ -18,6 +21,7 @@ public class Gamedirector : MonoBehaviour
     [SerializeField] Sounddiretctor sounddiretctor;
 
     public bool[] keyFlag = { false, false, false, false };
+    public int getkeyNum = 0;
 
     /// <summary>
     /// ゲームスタート時の処理
@@ -57,6 +61,53 @@ public class Gamedirector : MonoBehaviour
     public void activeCharactor()
     {
         this.charactorController.activeFlag = !this.charactorController.activeFlag;
+    }
+
+    /// <summary>
+    /// keyを取得した時に増やす
+    /// </summary>
+    public void addKeyNum()
+    {
+        getkeyNum = +1;
+        awakeEvent(getkeyNum);
+    }
+
+    /// <summary>
+    /// 取得数に応じたイベントの起動
+    /// </summary>
+    /// <param name="num"></param>
+    private void awakeEvent(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                
+                break;
+
+            case 1:
+                //敵が出現する
+                break;
+
+            case 2:
+                //電気が消える
+                break;
+
+            case 3:
+                //敵にスポットライトが当たる
+                break;
+
+            case 4:
+                //UI変更(未定)
+                break;
+        }
+    }
+
+    /// <summary>
+    /// keyを一個取得した時の
+    /// </summary>
+    private void event1()
+    {
+
     }
 
 }

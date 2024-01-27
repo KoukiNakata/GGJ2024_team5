@@ -34,16 +34,21 @@ public class Gamedirector : MonoBehaviour
         activeCharactor();
     }
 
+    public void gameClear()
+    {
+        UIdirector.activeGameClear(true);
+        UIdirector.activeTitleButton_GameClear(true);
+    }
+
     /// <summary>
     /// ゲームオーバー時の処理
     /// </summary>
     public void gameOver()
     {
         //ゲームオーバー時演出
-        //げーむおーばーUI表示
-        UIdirector.activeGameOver();
-        //リトライボタン表示
-        UIdirector.activeRetryButton();
+        UIdirector.activeGameOver(true);
+        UIdirector.activeRetryButton(true);
+        UIdirector.activeTitleButton_GameOver(true);
     }
 
     /// <summary>
@@ -81,7 +86,7 @@ public class Gamedirector : MonoBehaviour
         switch (num)
         {
             case 0:
-                
+
                 break;
 
             case 1:
@@ -103,7 +108,7 @@ public class Gamedirector : MonoBehaviour
     }
 
     /// <summary>
-    /// keyを一個取得した時の
+    /// keyを一個取得した時のイベント
     /// </summary>
     private void event1()
     {

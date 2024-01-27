@@ -21,8 +21,9 @@ public class gimicBase : MonoBehaviour, Igimic
     protected Gamedirector gamedirector;
     */
 
-    private string UIobjName = "";
-    //private string Ausdio
+    private string objName_UI = "";
+    private string objName_Audo = "";
+    private string objName_Game = "";
 
     private string tagName = "keyItem";
 
@@ -34,20 +35,19 @@ public class gimicBase : MonoBehaviour, Igimic
     protected void getUIComponent(UIdirector uIdirector)
     {
         //UIコンポーネントを取得
-        //uIdirector =gameObject.find GetComponent<UIdirector>();
+        uIdirector = GameObject.Find(objName_UI).GetComponent<UIdirector>();
     }
 
     protected void getAudioComponent(Sounddiretctor sounddiretctor)
     {
         //音コンポーネントを取得
-        sounddiretctor = GetComponent<Sounddiretctor>();
+        sounddiretctor = GameObject.Find(objName_Audo).GetComponent<Sounddiretctor>();
     }
 
     protected void getGameMaster(Gamedirector gamedirector)
     {
         //マスタークラスの取得
-        //gamedirector = GetComponent<Gamedirector>();
-        gamedirector = new Gamedirector();
+        gamedirector = GameObject.Find(objName_Game).GetComponent<Gamedirector>();
     }
 
     virtual public void getedGimic()

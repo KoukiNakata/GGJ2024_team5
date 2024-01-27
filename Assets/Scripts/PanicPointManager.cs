@@ -14,6 +14,7 @@ public class PanicPointManager : MonoBehaviour
     void Start()
     {
         panicPoint = 0;
+        panic = false;
     }
 
     // Update is called once per frame

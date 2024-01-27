@@ -10,14 +10,21 @@ public class EnemyController : MonoBehaviour
 
     public GameObject target;
     private NavMeshAgent agent;
+    public GameObject SerchArea;
+    private inArea inarea;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        inarea = SerchArea.GetComponent<inArea>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = target.transform.position;
+        if (inarea.playerIn == false)
+            return;
+            agent.destination = target.transform.position;
     }
+
 }

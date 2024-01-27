@@ -7,7 +7,7 @@ interface Igimic
     /// <summary>
     /// そのギミックの処理
     /// </summary>
-    public void getGimic();
+    public void getedGimic();
 }
 
 /// <summary>
@@ -15,22 +15,42 @@ interface Igimic
 /// </summary>
 public class gimicBase : MonoBehaviour, Igimic
 {
-    public void getUIComponent()
+    /*
+    protected  UIdirector uIdirector;
+    protected Sounddiretctor sounddiretctor;
+    protected Gamedirector gamedirector;
+    */
+
+    private string UIobjName = "";
+    //private string Ausdio
+
+    private string tagName = "keyItem";
+
+    protected void changeTag()
+    {
+        this.tag = tagName;
+    }
+
+    protected void getUIComponent(UIdirector uIdirector)
     {
         //UIコンポーネントを取得
+        //uIdirector =gameObject.find GetComponent<UIdirector>();
     }
 
-    public void getAudioComponent()
+    protected void getAudioComponent(Sounddiretctor sounddiretctor)
     {
         //音コンポーネントを取得
+        sounddiretctor = GetComponent<Sounddiretctor>();
     }
 
-    public void getGameMaster()
+    protected void getGameMaster(Gamedirector gamedirector)
     {
         //マスタークラスの取得
+        //gamedirector = GetComponent<Gamedirector>();
+        gamedirector = new Gamedirector();
     }
 
-    virtual public void getGimic()
+    virtual public void getedGimic()
     {
         //ギミックの処理
     }

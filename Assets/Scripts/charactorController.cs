@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 /// <summary>
-/// キャラクター
+/// キャラクター処理関連
 /// </summary>
 public class charactorController : MonoBehaviour
 {
@@ -17,6 +17,11 @@ public class charactorController : MonoBehaviour
     private float x, z;
     private Quaternion cameraRot, characotrRot;
     public bool activeFlag;
+    private string tagName = "keyItem";
+    private string axisRawNameX = "Horizontal";
+    private string axisRawNameY = "Vertical";
+    private string axisMouseX = "Mouse X";
+    private string axisMouseY = "Mouse Y";
 
     void Start()
     {
@@ -31,7 +36,9 @@ public class charactorController : MonoBehaviour
         charactorMove();
         viewControler();
         cursorLocker();
+        if (!Input.GetMouseButtonDown(0)) return;
         lazer();
+
     }
 
     /// <summary>
@@ -39,8 +46,8 @@ public class charactorController : MonoBehaviour
     /// </summary>
     private void charactorMove()
     {
-        x = Input.GetAxisRaw("Horizontal") * speed;
-        z = Input.GetAxisRaw("Vertical") * speed;
+        x = Input.GetAxisRaw(axisRawNameX) * speed;
+        z = Input.GetAxisRaw(axisRawNameY) * speed;
 
         player.transform.position += (new Vector3(mainCamera.transform.forward.x, 0, mainCamera.transform.forward.z) * z * speedUP() + mainCamera.transform.right * x);
     }
@@ -62,8 +69,8 @@ public class charactorController : MonoBehaviour
     /// </summary>
     private void viewControler()
     {
-        float xRot = Input.GetAxis("Mouse X") * Ysensityvity;
-        float yRot = Input.GetAxis("Mouse Y") * Xsensityvity;
+        float xRot = Input.GetAxis(axisMouseX) * Ysensityvity;
+        float yRot = Input.GetAxis(axisMouseY) * Xsensityvity;
 
         cameraRot *= Quaternion.Euler(-yRot, 0, 0);
         characotrRot *= Quaternion.Euler(0, xRot, 0);
@@ -88,6 +95,12 @@ public class charactorController : MonoBehaviour
         //引数(ワールド座標でのレイの開始地点、レイの方向、レイが衝突を検知する最大距離、)
         if (Physics.Raycast(ray, out hit, RayDistance))
         {
+            GameObject targetObj = hit.collider.gameObject;
+            if (targetObj.CompareTag(tagName))
+            {
+                targetObj.GetComponent<Igimic>().getedGimic();
+                Debug.Log("キーを取得");
+            }
             Debug.Log(hit.collider.gameObject.name);
         }
     }
@@ -110,7 +123,7 @@ public class charactorController : MonoBehaviour
     /// <summary>
     /// 角度制御用関数
     /// </summary>
-    /// <param name="q"></param>
+    /// <param name="q">制御する変数</param>
     /// <returns></returns>
     private Quaternion ClampRotation(Quaternion q)
     {

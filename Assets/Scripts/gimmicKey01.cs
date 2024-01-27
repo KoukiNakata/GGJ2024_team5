@@ -12,14 +12,14 @@ public class gimmicKey01 : gimicBase, Igimic
     {
         changeTag();
     }
+
+    /// <summary>
+    /// キーアイテム取得時の処理
+    /// </summary>
     public override void getedGimic()
     {
-        //getGameMaster(gamedirector);
-        //getUIComponent(UIdirector);
-
         gamedirector.addKeyNum();
-        //取得したオブジェクトの処理
-        UIdirector.dispkeyGetItems(gamedirector.getkeyNum);
+        UIdirector.displyKeyGetItems(gamedirector.getkeyNum);
         Destroy(this.gameObject);
     }
 }

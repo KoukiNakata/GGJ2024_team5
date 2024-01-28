@@ -5,7 +5,8 @@ using UnityEngine;
 public class inArea : MonoBehaviour
 {
     public bool playerIn;
-    public GameObject gameManager;
+    private GameObject gameManager;
+    private GameObject soundManager;
     private PanicPointManager PPM;
     private BGMManager BGMM;
 
@@ -13,7 +14,10 @@ public class inArea : MonoBehaviour
     void Start()
     {
         playerIn = false;
+
+        gameManager = GameObject.Find("GameManager");
         PPM = gameManager.GetComponent<PanicPointManager>();
+        soundManager = GameObject.Find("SoundManager");
         BGMM = gameManager.GetComponent<BGMManager>();
         
     }

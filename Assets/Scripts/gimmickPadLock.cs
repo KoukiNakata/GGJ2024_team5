@@ -65,5 +65,11 @@ public class gimmickPadLock : gimicBase, Igimic
             //クリアUI表示
             uidirector.activeGameClear(true);
         }
+        else
+        {
+            //扉にカギがかかっている
+            //テキスト表示
+            //「ガチャガチャ」se再生
+        }
     }
 }

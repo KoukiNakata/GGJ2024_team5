@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
@@ -25,20 +22,20 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inarea.playerIn==true)
+        if (inarea.playerIn == true)
             agent.destination = Playertarget.transform.position;
-        
+
         else
         {
             if (normaltarget.Length == 0)
                 return;
             agent.destination = normaltarget[targetID].transform.position;
         }
-            
+
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name==normaltarget[targetID].name)
+        if (other.gameObject.name == normaltarget[targetID].name)
         {
             targetID += 1;
             if (targetID == normaltarget.Length)

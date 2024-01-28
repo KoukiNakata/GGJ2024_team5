@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-//using UnityEngine.UI;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
-using Unity.VisualScripting;
 
 /// <summary>
 /// UIの挙動を管理するクラス
@@ -18,10 +14,12 @@ public class UIdirector : MonoBehaviour
     [SerializeField] GameObject obj_gameClear;
     [SerializeField] GameObject obj_titleButtonGameOver;
     [SerializeField] GameObject fadeoutImage;
+    [SerializeField] GameObject obj_tmpText;
 
     [SerializeField] Image panicImage;
     [SerializeField] Image[] keyItems;
     [SerializeField] fadeDirection fadeDirection;
+    [SerializeField] TextMeshProUGUI tmpText;
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +100,9 @@ public class UIdirector : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// フェードアウト用のimage
+    /// </summary>
     private void activeFadeutImage(bool active)
     {
         fadeoutImage.SetActive(active);
@@ -114,5 +115,14 @@ public class UIdirector : MonoBehaviour
     {
         activeFadeutImage(true);
         fadeDirection.fadeoutDirection();
+    }
+
+    public void displaytext(string message)
+    {
+        obj_tmpText.SetActive(true);
+        tmpText.text = message;
+
+        //ディレイ
+        obj_tmpText.SetActive(false);
     }
 }

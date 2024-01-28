@@ -115,11 +115,11 @@ public class charactorController : MonoBehaviour
     /// </summary>
     public void cursorLocker()
     {
-        if (cursorLock)
+        if (activeFlag)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        else if (!cursorLock)
+        else if (!activeFlag)
         {
             Cursor.lockState = CursorLockMode.None;
         }

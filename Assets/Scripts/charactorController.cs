@@ -34,12 +34,16 @@ public class charactorController : MonoBehaviour
     void Update()
     {
         if (!activeFlag) return;
-        charactorMove();
+        //charactorMove();
         viewControler();
         cursorLocker();
         if (!Input.GetMouseButtonDown(0)) return;
         lazer();
 
+    }
+    private void FixedUpdate()
+    {
+        charactorMove();
     }
 
     /// <summary>
@@ -55,7 +59,7 @@ public class charactorController : MonoBehaviour
 
     private float speedUP()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             return upSpeed;
         }

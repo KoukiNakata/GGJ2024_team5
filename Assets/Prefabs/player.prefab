@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df57590176b730449b6d19e2797d118a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: d38a968a0dba5df4b89262f6679d37ce, type: 3}
+  audioClip: {fileID: 8300000, guid: ff5fc5f8b0a1fd141b1b00751d8603ff, type: 3}
   muteDeadZone: 0.1
 --- !u!114 &5489801289576709246
 MonoBehaviour:

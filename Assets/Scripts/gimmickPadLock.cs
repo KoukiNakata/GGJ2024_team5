@@ -30,7 +30,7 @@ public class gimmickPadLock : gimicBase, Igimic
 
     IEnumerator gameClear()
     {
-        if (this.gamedirector.getkeyNum == needKeyNum)
+        // if (this.gamedirector.getkeyNum == needKeyNum)
         {
             //プレイヤー操作不可能
             gamedirector.activeCharactor(false);
@@ -48,24 +48,21 @@ public class gimmickPadLock : gimicBase, Igimic
             //ドア開閉初動SE
             //ドア開閉途中SE
 
-            yield return new WaitForSeconds(2.2f);
+            yield return new WaitForSeconds(4);
 
-            //プレイヤー前進
-            for (int i = 0; i < 100; i++)
-            {
-                player.transform.position += new Vector3(addPos.x, addPos.y, addPos.z);
-            }
+            //ヴァーチャルカメラに変更
 
             //フェードアウト演出
             uidirector.fadeoutDirection();
 
             //ディレイ 1.5s フェードアウト演出時間
-            yield return new WaitForSeconds(1.6f);
+            yield return new WaitForSeconds(2.5f);
 
             //クリアUI表示
             uidirector.activeGameClear(true);
+            uidirector.activeTitleButton_GameClear(true);
         }
-        else
+        // else
         {
             //扉にカギがかかっている
             //テキスト表示

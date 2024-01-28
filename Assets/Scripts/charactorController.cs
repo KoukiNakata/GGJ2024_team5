@@ -33,16 +33,16 @@ public class charactorController : MonoBehaviour
 
     void Update()
     {
-        if (!activeFlag) return;
-        //charactorMove();
-        viewControler();
         cursorLocker();
+        if (!activeFlag) return;
+        viewControler();
         if (!Input.GetMouseButtonDown(0)) return;
         lazer();
 
     }
     private void FixedUpdate()
     {
+        if (!activeFlag) return;
         charactorMove();
     }
 

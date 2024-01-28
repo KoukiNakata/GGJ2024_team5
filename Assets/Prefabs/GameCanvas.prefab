@@ -1011,13 +1011,13 @@ RectTransform:
   - {fileID: 1160955978352913251}
   - {fileID: 8487263011164115702}
   - {fileID: 8298417415606468422}
-  - {fileID: 3153340817262720031}
-  - {fileID: 1960010692755700986}
   - {fileID: 2988417628789267948}
   - {fileID: 6749030637878696091}
   - {fileID: 3791263488793077148}
   - {fileID: 1266492715891031315}
   - {fileID: 7719039099379098980}
+  - {fileID: 1960010692755700986}
+  - {fileID: 3153340817262720031}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1111,7 +1111,9 @@ MonoBehaviour:
   obj_gameClear: {fileID: 1395942855230494973}
   obj_titleButtonGameOver: {fileID: 67238777624632410}
   fadeoutImage: {fileID: 3705595065320004429}
+  obj_tmpText: {fileID: 0}
   fadeDirection: {fileID: 8144445187550606580}
+  tmpText: {fileID: 0}
 --- !u!1 &4979630030997707345
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,9 +14,11 @@ public class TochGameOver : MonoBehaviour
         gameDirector=gameDirectorObj.GetComponent<Gamedirector>();
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+
+    public void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.tag==PlayertagName)
+
+        if (collision.gameObject.tag == PlayertagName)
         {
             gameDirector.gameOver();
         }

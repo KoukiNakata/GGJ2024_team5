@@ -99,27 +99,24 @@ public class Gamedirector : MonoBehaviour
         switch (num)
         {
             case 0:
-                //敵が出現する
-                //環境光を暗くする
-                //手持ちのライトが点灯
+
                 break;
 
             case 1:
                 //敵が出現
+
                 EnemyObj.SetActive(true);
                 break;
 
             case 2:
-                //敵にスポットライトが当たる
+                //敵が出現
                 break;
 
             case 3:
-                //UI変更(未定)
-                //ドアロック解除(フラグ起動)
                 break;
 
             case 4:
-
+                //ドアロック解除(フラグ起動)
                 break;
         }
     }

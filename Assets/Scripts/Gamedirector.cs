@@ -20,9 +20,14 @@ public class Gamedirector : MonoBehaviour
     [SerializeField] UIdirector UIdirector;
     [SerializeField] Sounddiretctor sounddiretctor;
 
+    [SerializeField] GameObject EnemyObj;
     public bool[] keyFlag = { false, false, false, false };
     public int getkeyNum = 0;
 
+    void Start()
+    {
+        EnemyObj.SetActive(false);
+    }
     /// <summary>
     /// ゲームスタート時の処理
     /// </summary>
@@ -94,26 +99,27 @@ public class Gamedirector : MonoBehaviour
         switch (num)
         {
             case 0:
-
-                break;
-
-            case 1:
                 //敵が出現する
                 //環境光を暗くする
                 //手持ちのライトが点灯
                 break;
 
-            case 2:
+            case 1:
                 //敵が出現
+                EnemyObj.SetActive(true);
                 break;
 
-            case 3:
+            case 2:
                 //敵にスポットライトが当たる
                 break;
 
-            case 4:
+            case 3:
                 //UI変更(未定)
                 //ドアロック解除(フラグ起動)
+                break;
+
+            case 4:
+
                 break;
         }
     }

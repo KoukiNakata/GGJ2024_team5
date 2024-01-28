@@ -62,15 +62,7 @@ public class Gamedirector : MonoBehaviour
         UIdirector.activeGameOver(true);
         UIdirector.activeRetryButton(true);
         UIdirector.activeTitleButton_GameOver(true);
-    }
-
-    /// <summary>
-    /// フラグの書き換え
-    /// </summary>
-    /// <param name="num"></param>
-    public void activeflag(int num)
-    {
-        keyFlag[num] = true;
+        activeCharactor(false);
     }
 
     /// <summary>

@@ -11,10 +11,11 @@ public class gimmickPadLock : gimicBase, Igimic
     [SerializeField] Sounddiretctor sounddiretctor;
     [SerializeField] UIdirector uidirector;
     [SerializeField] Animator animator;
-    [SerializeField] MeshRenderer mesh;
+    //[SerializeField] MeshRenderer mesh;
     [SerializeField] GameObject player;
     private readonly int needKeyNum = 4;
     private string flagName = "openFlag";
+    private string methodName = "gameClear";
 
     [SerializeField] Vector3 addPos;
     private void Start()
@@ -24,23 +25,30 @@ public class gimmickPadLock : gimicBase, Igimic
 
     override public void getedGimic()
     {
+        StartCoroutine(methodName);
+    }
+
+    IEnumerator gameClear()
+    {
         if (this.gamedirector.getkeyNum == needKeyNum)
         {
             //プレイヤー操作不可能
             gamedirector.activeCharactor(false);
 
             //オブジェクトの見た目だけをけす
-            this.mesh.enabled = false;
+            //this.mesh.enabled = false;
 
-            //外れる音(se再生)
+            //カギを開ける音(se再生)
 
             //1秒dilay 
+            yield return new WaitForSeconds(1f);
 
             //ドアを開けるアニメーション再生
             animator.SetBool(flagName, true);
             //ドア開閉初動SE
             //ドア開閉途中SE
 
+            yield return new WaitForSeconds(2.2f);
 
             //プレイヤー前進
             for (int i = 0; i < 100; i++)
@@ -49,10 +57,13 @@ public class gimmickPadLock : gimicBase, Igimic
             }
 
             //フェードアウト演出
+            uidirector.fadeoutDirection();
+
+            //ディレイ 1.5s フェードアウト演出時間
+            yield return new WaitForSeconds(1.6f);
 
             //クリアUI表示
             uidirector.activeGameClear(true);
         }
-
     }
 }

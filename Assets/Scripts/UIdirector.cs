@@ -33,6 +33,10 @@ public class UIdirector : MonoBehaviour
     /// </summary>
     public void initialize()
     {
+        for (int i = 0; i < obj_keyItems.Length; i++)
+        {
+            obj_keyItems[i].SetActive(false);
+        }
         activeGameOver(false);
         activeGameClear(false);
         activeRetryButton(false);

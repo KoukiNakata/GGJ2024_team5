@@ -23,7 +23,7 @@ public class gimicBase : MonoBehaviour, Igimic
 
     private string objName_UI = "";
     private string objName_Audo = "";
-    private string objName_Game = "";
+    private string objName_Game = "GameManager";
 
     private string tagName = "gimmickItem";
 

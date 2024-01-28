@@ -34,8 +34,16 @@ public class Gamedirector : MonoBehaviour
         activeCharactor();
     }
 
+    /// <summary>
+    /// ゲームクリア時の処理
+    /// </summary>
     public void gameClear()
     {
+        /*
+         * ドアを開ける
+         * プレイヤーが前に進む
+         * フェードアウトする
+        */
         UIdirector.activeGameClear(true);
         UIdirector.activeTitleButton_GameClear(true);
     }
@@ -73,7 +81,7 @@ public class Gamedirector : MonoBehaviour
     /// </summary>
     public void addKeyNum()
     {
-        getkeyNum = +1;
+        getkeyNum += 1;
         awakeEvent(getkeyNum);
     }
 
@@ -91,10 +99,12 @@ public class Gamedirector : MonoBehaviour
 
             case 1:
                 //敵が出現する
+                //環境光を暗くする
+                //手持ちのライトが点灯
                 break;
 
             case 2:
-                //電気が消える
+                //敵が出現
                 break;
 
             case 3:
@@ -103,6 +113,7 @@ public class Gamedirector : MonoBehaviour
 
             case 4:
                 //UI変更(未定)
+                //ドアロック解除(フラグ起動)
                 break;
         }
     }
@@ -113,6 +124,18 @@ public class Gamedirector : MonoBehaviour
     private void event1()
     {
 
+    }
+
+    private void event2()
+    {
+    }
+
+    private void event3()
+    {
+    }
+
+    private void event4()
+    {
     }
 
 }

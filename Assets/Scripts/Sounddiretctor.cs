@@ -21,7 +21,7 @@ public class Sounddiretctor : MonoBehaviour
     {
         SE.PlayOneShot(Exit_SE);
     }
-    public async void UI_button()
+    public async void UIbutton()
     {
         SE.clip = UIbutton_SE;
         SE.Play();

@@ -18,7 +18,7 @@ public class inArea : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         PPM = gameManager.GetComponent<PanicPointManager>();
         soundManager = GameObject.Find("BGMManager");
-        BGMM = gameManager.GetComponent<BGMManager>();
+        BGMM = soundManager.GetComponent<BGMManager>();
         
     }
 

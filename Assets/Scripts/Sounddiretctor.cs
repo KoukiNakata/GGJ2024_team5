@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class Sounddiretctor : MonoBehaviour
 {
@@ -20,9 +21,13 @@ public class Sounddiretctor : MonoBehaviour
     {
         SE.PlayOneShot(Exit_SE);
     }
-    public void UI_button()
+    public async void UI_button()
     {
-        SE.PlayOneShot(UIbutton_SE);
+        SE.clip = UIbutton_SE;
+        SE.Play();
+        await Task.Delay(1000);
+        SE.clip = null;
+
     }
 
 }

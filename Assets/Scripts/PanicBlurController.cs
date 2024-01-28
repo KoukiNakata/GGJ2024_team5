@@ -29,6 +29,6 @@ public class PanicBlurController : MonoBehaviour
         float parPP=PPM.panicPoint/PPM.panicPointMax;
 
         vignetee.intensity.Override(parPP);
-        Debug.Log(parPP);
+        //Debug.Log(parPP);
     }
 }

@@ -30075,14 +30075,6 @@ PrefabInstance:
       propertyPath: PPM
       value: 
       objectReference: {fileID: 1051600368}
-    - target: {fileID: 2400908060324515153, guid: 8228019c3d3a3a04fbe98b26e7202ad7, type: 3}
-      propertyPath: speed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400908060324515153, guid: 8228019c3d3a3a04fbe98b26e7202ad7, type: 3}
-      propertyPath: RayDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3139147273962875679, guid: 8228019c3d3a3a04fbe98b26e7202ad7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.474674
@@ -30123,21 +30115,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5765048302278254749, guid: 8228019c3d3a3a04fbe98b26e7202ad7, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765048302278254749, guid: 8228019c3d3a3a04fbe98b26e7202ad7, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7479533794357677852, guid: 8228019c3d3a3a04fbe98b26e7202ad7, type: 3}
       propertyPath: m_Name
       value: player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7479533794357677852, guid: 8228019c3d3a3a04fbe98b26e7202ad7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

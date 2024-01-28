@@ -20,6 +20,7 @@ public class gimmicKey01 : gimicBase, Igimic
     {
         gamedirector.addKeyNum();
         UIdirector.displyKeyGetItems(gamedirector.getkeyNum);
+        //SE再生
         Destroy(this.gameObject);
     }
 }

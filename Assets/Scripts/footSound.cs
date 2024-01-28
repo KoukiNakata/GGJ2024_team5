@@ -28,7 +28,7 @@ public class footSound : MonoBehaviour
     {
         if(msm.monitorSpeed>=muteDeadZone)
         {
-            Debug.Log("Play");
+            //Debug.Log("Play");
             if (audioSource.isPlaying == true)
                 return;
 
@@ -37,7 +37,7 @@ public class footSound : MonoBehaviour
         }
         else
         {
-            Debug.Log("Stop");
+            //Debug.Log("Stop");
             audioSource.Stop();
         }
     }

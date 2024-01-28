@@ -31,7 +31,7 @@ public class Gamedirector : MonoBehaviour
         //セリフの再生
 
         //キャラクター操作可能
-        activeCharactor(true);
+        activeCharactor();
     }
 
     /// <summary>
@@ -71,9 +71,9 @@ public class Gamedirector : MonoBehaviour
     /// <summary>
     /// キャラクターのアクティブフラグ操作
     /// </summary>
-    public void activeCharactor(bool active)
+    public void activeCharactor()
     {
-        this.charactorController.activeFlag = active;
+        this.charactorController.activeFlag = !this.charactorController.activeFlag;
     }
 
     /// <summary>

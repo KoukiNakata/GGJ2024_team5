@@ -17,10 +17,11 @@ public class UIdirector : MonoBehaviour
     [SerializeField] GameObject obj_titleButtonGameClear;
     [SerializeField] GameObject obj_gameClear;
     [SerializeField] GameObject obj_titleButtonGameOver;
+    [SerializeField] GameObject fadeoutImage;
 
-    [SerializeField] TextMeshProUGUI tmp_gameOver;
     [SerializeField] Image panicImage;
     [SerializeField] Image[] keyItems;
+    [SerializeField] fadeDirection fadeDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class UIdirector : MonoBehaviour
         activeRetryButton(false);
         activeTitleButton_GameClear(false);
         activeTitleButton_GameOver(false);
+        activeFadeutImage(false);
     }
 
     /// <summary>
@@ -98,5 +100,19 @@ public class UIdirector : MonoBehaviour
         {
             obj_keyItems[i].SetActive(true);
         }
+    }
+
+    private void activeFadeutImage(bool active)
+    {
+        fadeoutImage.SetActive(active);
+    }
+
+    /// <summary>
+    ///フェードアウト演出 
+    /// </summary>
+    public void fadeoutDirection()
+    {
+        activeFadeutImage(true);
+        fadeDirection.fadeoutDirection();
     }
 }

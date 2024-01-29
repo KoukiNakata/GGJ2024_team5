@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -11,6 +10,7 @@ public class gimmickPadLock : gimicBase, Igimic
     [SerializeField] Sounddiretctor sounddiretctor;
     [SerializeField] UIdirector uidirector;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject mainCam, cam1, cam2;
     //[SerializeField] MeshRenderer mesh;
     [SerializeField] GameObject player;
     private readonly int needKeyNum = 4;
@@ -30,27 +30,36 @@ public class gimmickPadLock : gimicBase, Igimic
 
     IEnumerator gameClear()
     {
-        // if (this.gamedirector.getkeyNum == needKeyNum)
+        if (this.gamedirector.getkeyNum == needKeyNum)
         {
             //プレイヤー操作不可能
             gamedirector.activeCharactor(false);
 
+            mainCam.SetActive(false);
+
+            cam1.SetActive(true);
+
             //オブジェクトの見た目だけをけす
             //this.mesh.enabled = false;
 
-            //カギを開ける音(se再生)
+            //カギを開ける音(未実装)
 
             //1秒dilay 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2.5f);
 
             //ドアを開けるアニメーション再生
             animator.SetBool(flagName, true);
-            //ドア開閉初動SE
-            //ドア開閉途中SE
+
+            //ドア開閉初動SE(未実装)
+            //ドア開閉途中SE(未実装)
 
             yield return new WaitForSeconds(4);
 
             //ヴァーチャルカメラに変更
+            cam1.SetActive(false);
+            cam2.SetActive(true);
+
+            yield return new WaitForSeconds(3);
 
             //フェードアウト演出
             uidirector.fadeoutDirection();
@@ -62,11 +71,10 @@ public class gimmickPadLock : gimicBase, Igimic
             uidirector.activeGameClear(true);
             uidirector.activeTitleButton_GameClear(true);
         }
-        // else
+        else
         {
-            //扉にカギがかかっている
-            //テキスト表示
-            //「ガチャガチャ」se再生
+            //扉にカギがかかっているテキスト表示(未実装)
+            //「ガチャガチャ」se再生(未実装)
         }
     }
 }

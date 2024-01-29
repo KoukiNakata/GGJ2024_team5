@@ -26,7 +26,7 @@ public class charactorController : MonoBehaviour
     void Start()
     {
         activeFlag = true;
-        setupRigidbody();
+        initializeRigidbody();
         cameraRot = mainCamera.transform.localRotation;
         characotrRot = player.transform.localRotation;
     }
@@ -83,6 +83,7 @@ public class charactorController : MonoBehaviour
 
         mainCamera.transform.localRotation = cameraRot;
         player.transform.localRotation = characotrRot;
+
     }
 
     /// <summary>
@@ -90,12 +91,12 @@ public class charactorController : MonoBehaviour
     /// </summary>
     private void lazer()
     {
-        Vector3 fwd = mainCamera.transform.TransformDirection(Vector3.forward);
-        Ray ray = new Ray(transform.position, fwd);
+        Vector3 fwd = this.mainCamera.transform.TransformDirection(Vector3.forward);
+        Ray ray = new Ray(this.mainCamera.transform.position, fwd);
         RaycastHit hit;
 
         //引数(       レイの開始地点、        レイの方向と長さ、レイの色、レイを表示する時間)
-        Debug.DrawRay(mainCamera.transform.position, ray.direction * RayDistance, Color.red, 0.1f, false);
+        Debug.DrawRay(this.mainCamera.transform.position, ray.direction * RayDistance, Color.red, 0.1f, false);
 
         //引数(ワールド座標でのレイの開始地点、レイの方向、レイが衝突を検知する最大距離、)
         if (Physics.Raycast(ray, out hit, RayDistance))
@@ -103,8 +104,8 @@ public class charactorController : MonoBehaviour
             GameObject targetObj = hit.collider.gameObject;
             if (targetObj.CompareTag(tagName))
             {
-                targetObj.GetComponent<Igimic>().getedGimic();
                 Debug.Log("キーを取得");
+                targetObj.GetComponent<Igimic>().getedGimic();
             }
             Debug.Log(hit.collider.gameObject.name);
         }
@@ -147,9 +148,9 @@ public class charactorController : MonoBehaviour
 
         return q;
     }
-    private void setupRigidbody()
+    private void initializeRigidbody()
     {
-        rigidbodyPlayer.constraints = RigidbodyConstraints.FreezePositionY;
-        rigidbodyPlayer.constraints = RigidbodyConstraints.FreezeRotation;
+        rigidbodyPlayer.constraints = RigidbodyConstraints.FreezePositionY |
+            RigidbodyConstraints.FreezeRotation;
     }
 }

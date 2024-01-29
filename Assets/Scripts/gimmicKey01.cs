@@ -18,7 +18,6 @@ public class gimmicKey01 : gimicBase, Igimic
     {
         gamedirector.addKeyNum();
         UIdirector.displyKeyGetItems(gamedirector.getkeyNum);
-        //SE再生
         sounddiretctor.GetKey();
         Destroy(this.gameObject);
     }
